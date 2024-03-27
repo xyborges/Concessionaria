@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Show de Bola</title>
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" href="primario.css">
+</head>
+<body>
+	
+	<div id = "divmain" class="container-fluid">
+
+		<div id = "navbar" class="container-fluid">
+			<h2 id= "textlogo" >Concessionária <span id = "shwdbl">Show de Bola</span></h2><br>
+			<div id="options">
+				<a href="administracao.html"><i class="bi bi-person"></i></a>
+				<i class="bi bi-arrow-down-up"></i>
+			</div>
+		</div>
+
+		<div id="veiculos" class="container-fluid">
+			<img id = "veiculosimg" src="veiculos/1.png">
+			<div id="divcompra">
+				<p>Encontre uma nova experiência.</p>
+				<p>Sultan, 2024<br><span style="color: #4b973b;-webkit-text-stroke-width: 1px;-webkit-text-stroke-color: #000; ">$75000</span></p>
+				<button>ver mais</button><br>
+			</div>
+		</div>
+		<div id = "comentario" class="container-fluid">
+			<img src="clientes/clientes_imagens/galizeu.png">
+			<p>Excelente atendimento! estou satisfeito com a minha compra.<br><span id="comentario-cliente">- Gustavo.</span></p>
+		</div>
+		<div id="fixado">
+			<img class="elementos-fixados" src="imagens/logoinsta.png">
+			<img class="elementos-fixados"src="imagens/logowhats.png"><br>
+			<p class="elementos-fixados" style="color: #4b973b;-webkit-text-stroke-width: 1px;-webkit-text-stroke-color: #000; ">$63400</p>
+		</div>			
+	</div>	
+	
+</body>
+</html>
+<script>
+function ajustarAlturaDiv() {
+    var alturaTela = window.innerHeight; 
+    var minhaDiv = document.getElementById("veiculos");
+    var navb = document.getElementById("navbar");
+    var comentario = document.getElementById("comentario");
+    minhaDiv.style.height = alturaTela-71.52 + "px"; //71 da navbar
+    comentario.style.height = alturaTela + "px";  
+}
+function changeImage() {
+
+    var randomNumber = Math.floor(Math.random() * 8) + 1; 
+    var imagePath = "veiculos/" + randomNumber + ".png";
+    var veiculosImg = document.getElementById("veiculosimg");
+    
+    veiculosImg.classList.add("fade-out");
+    
+
+    setTimeout(function() {
+        veiculosImg.src = imagePath;
+        veiculosImg.classList.remove("fade-out");
+    }, 300); 
+}
+ajustarAlturaDiv();
+window.addEventListener("resize", ajustarAlturaDiv);
+// 5 segundos (5000 milissegundos)
+//setInterval(changeImage, 7500);	
+</script>
