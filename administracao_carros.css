@@ -19,11 +19,14 @@ body{
 	background-color: #1c1c1c;
 	font-family: bec;
 }
+
 #menu-car{
-	position: absolute;
 	top: 15px;
-	left: 20px;
 	font-family: price;
+}
+.inputs{
+	font-family: price;
+	width: 50%;
 }
 #navbar{
 	position: absolute;
@@ -58,16 +61,16 @@ body{
 }
 #editar-veiculo{
 	background-color: #808080;
-	width: 30%;
+	width: 50%;
 	height: 60%;
 	top:50%;
-	left: 20%;
+	left: 30%;
 	border-radius: 10px;
 }
 #editar-veiculo  p{
 	font-size: 2em;
 	color: #1c1c1c;
-	top: 0;
+	top: -10px;
 	white-space: nowrap;
 }
 #divveh{
@@ -81,6 +84,23 @@ body{
 	transition: opacity 0.3s ease-in-out;
 	z-index:1;
 	top: 50%;
-	width: auto;
-	height: 25em;
+	left: 60%;
+	height: 15rem;
+}
+@media screen and (min-width: 768px) {
+    #veiculosimg {
+    	height: 22rem;; /* Define a largura da imagem como 80% da largura da tela */
+    }
+}
+
+/* Consulta de mídia para ajustar o tamanho da imagem em telas pequenas */
+@media screen and (max-width: 767px) {
+    #veiculosimg {
+    	left: 70%;
+    	height: 15rem; /* Define a largura da imagem como 50% da largura da tela */
+    }
+}
+#divbutton{
+    display: flex; 
+    flex-wrap: nowrap;
 }

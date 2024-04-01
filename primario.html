@@ -15,16 +15,15 @@
 		<div id = "navbar" class="container-fluid">
 			<h2 id= "textlogo" >Concessionária <span id = "shwdbl">Show de Bola</span></h2><br>
 			<div id="options">
-				<a href="administracao.html"><i class="bi bi-person"></i></a>
-				<i class="bi bi-arrow-down-up"></i>
+				<a href="administracao_carros.html"><i class="bi bi-person"></i></a>
+				<a href="clientes_vendas.html"><i class="bi bi-arrow-down-up"></i></a>
 			</div>
 		</div>
-
+	
 		<div id="veiculos" class="container-fluid">
 			<img id = "veiculosimg" src="veiculos/1.png">
 			<div id="divcompra">
 				<p>Encontre uma nova experiência.</p>
-				<p>Sultan, 2024<br><span style="color: #4b973b;-webkit-text-stroke-width: 1px;-webkit-text-stroke-color: #000; ">$75000</span></p>
 				<button>ver mais</button><br>
 			</div>
 		</div>
@@ -32,23 +31,49 @@
 			<img src="clientes/clientes_imagens/galizeu.png">
 			<p>Excelente atendimento! estou satisfeito com a minha compra.<br><span id="comentario-cliente">- Gustavo.</span></p>
 		</div>
+		<div id="veiculos_compra" class="container-fluid">
+		    <img id="veiculos_compraimg" src="veiculos/1.png">
+		    <div id="info_veiculo">
+		        <p id="nome_veiculo"></p>
+		        <p id="valor_veiculo"></p>
+		        <p id="ano_veiculo"></p>
+		        <p id="classe_veiculo"></p>
+		        <button id="btn_anterior">Anterior</button>
+		        <button id="btn_proximo">Próximo</button>
+		        <button id="btn_comprar" style="background-color:#4b973b; color: white;-webkit-text-stroke-width: 1px;-webkit-text-stroke-color: #000;">COMPRAR</button>
+		    </div>
+		</div>
+        <footer>
+            <p>© 2024 Concessionária Show de Bola</p>
+            <ul>
+                <li><a href="politica_de_privacidade.html">Política de Privacidade</a></li>
+                <li><a href="termos_e_condicoes.html">Termos e Condições</a></li>
+            </ul>
+        </footer>
 		<div id="fixado">
 			<img class="elementos-fixados" src="imagens/logoinsta.png">
 			<img class="elementos-fixados"src="imagens/logowhats.png"><br>
-			<p class="elementos-fixados" style="color: #4b973b;-webkit-text-stroke-width: 1px;-webkit-text-stroke-color: #000; ">$63400</p>
-		</div>			
+			<p class="elementos-fixados" style="color: #4b973b;-webkit-text-stroke-width: 1px;-webkit-text-stroke-color: #000; ">$10000</p>
+		</div>
+		<div id="kkkk">
+			<img src="https://i.pinimg.com/originals/75/7e/d4/757ed411db081febcbbbc0d720e1181c.gif">
+			<p>Você está sem saldo!</p>
+		</div>					
 	</div>	
 	
 </body>
 </html>
+<script type="text/javascript" src="script_principal.js"></script>
 <script>
 function ajustarAlturaDiv() {
     var alturaTela = window.innerHeight; 
     var minhaDiv = document.getElementById("veiculos");
     var navb = document.getElementById("navbar");
+    var veiculoscompra = document.getElementById("veiculos_compra");
     var comentario = document.getElementById("comentario");
-    minhaDiv.style.height = alturaTela-71.52 + "px"; //71 da navbar
+    minhaDiv.style.height = (alturaTela - navb.style.height) + "px"; 
     comentario.style.height = alturaTela + "px";  
+    veiculoscompra.style.height = alturaTela + "px";  
 }
 function changeImage() {
 
@@ -64,8 +89,52 @@ function changeImage() {
         veiculosImg.classList.remove("fade-out");
     }, 300); 
 }
+
 ajustarAlturaDiv();
 window.addEventListener("resize", ajustarAlturaDiv);
-// 5 segundos (5000 milissegundos)
-//setInterval(changeImage, 7500);	
+let veiculoAtual = 1;
+
+const imgVeiculo = document.getElementById('veiculos_compraimg');
+const nomeVeiculo = document.getElementById('nome_veiculo');
+const valorVeiculo = document.getElementById('valor_veiculo');
+const anoVeiculo = document.getElementById('ano_veiculo');
+const classeVeiculo = document.getElementById('classe_veiculo');
+
+const btnAnterior = document.getElementById('btn_anterior');
+const btnProximo = document.getElementById('btn_proximo');
+const btnComprar = document.getElementById('btn_comprar');
+
+function atualizarVeiculo() {
+    const veiculo = veiculos[veiculoAtual];
+    imgVeiculo.classList.add("fade-out");
+    
+
+    setTimeout(function() {
+        imgVeiculo.src = 'veiculos/' + veiculoAtual + '.png';;
+        imgVeiculo.classList.remove("fade-out");
+    }, 300); 
+    nomeVeiculo.textContent = `Nome: ${veiculo.nome}`;
+    valorVeiculo.textContent = `Valor: ${veiculo.valor}`;
+    anoVeiculo.textContent = `Ano: ${veiculo.ano}`;
+    classeVeiculo.textContent = `Classe: ${veiculo.classe}`;
+}
+
+btnAnterior.addEventListener('click', () => {
+    veiculoAtual = veiculoAtual > 1 ? veiculoAtual - 1 : 8;
+    atualizarVeiculo();
+});
+
+btnComprar.addEventListener('click', () => {
+	const divkkk = document.getElementById("kkkk");
+	divkkk.style.cssText = "display: block;"
+    setTimeout(function() {
+   		divkkk.style.cssText = "display: none;"
+    }, 5300); 
+});
+
+btnProximo.addEventListener('click', () => {
+    veiculoAtual = veiculoAtual < 8 ? veiculoAtual + 1 : 1;
+    atualizarVeiculo();
+});
+atualizarVeiculo();
 </script>

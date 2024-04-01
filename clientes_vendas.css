@@ -1,0 +1,108 @@
+@font-face {
+    font-family: bec;
+    src: url('fonte/BECKETT_.TTF') ;
+
+}
+@font-face{
+    font-family: price;
+    src: url('fonte/pricedown bl.otf') 
+}
+.fade-out{
+    opacity: 0;
+}
+.centralizar{
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+body{
+    background-color: #1c1c1c;
+    font-family: bec;
+}
+
+#cliente-car{
+    top: 15px;
+    text-align: center;
+    font-family: price;
+}
+.inputs{
+    font-family: price;
+    width: 50%;
+    outline: 0;
+}
+#navbar{
+    position: absolute;
+    height: 30px;
+}
+#voltar-primario{
+    color: #1c1c1c;
+    top: 25px;
+    left: 2%;
+    font-size: 2.2em;
+    cursor: pointer;
+
+}
+#texto{
+    color: #1c1c1c;
+    top: 25px;
+    left: 50%;
+    font-size: 2em;
+}
+#corpo{
+    overflow: hidden;
+    position: relative;
+    height: 100%;
+    top: 2em;
+    width: 100%;
+    height: 35em;
+    border-radius: 10px;
+    background-color: #e5ebe7;
+    border: 0;
+    outline: 0;
+    padding: 0;
+}
+#editar-cliente{
+    background-color: #808080;
+    width: 50%;
+    height: auto;
+    top:50%;
+    left: 30%;
+    border-radius: 10px;
+}
+#editar-cliente  p{
+    font-size: 2em;
+    color: #1c1c1c;
+    top: -10px;
+    white-space: nowrap;
+}
+#divveh{
+    width: 30%;
+    height: 60%;
+    top: 50%;
+    left: 70%;
+    border-radius: 10px;
+}
+#veiculosimg{
+    transition: opacity 0.3s ease-in-out;
+    z-index:1;
+    top: 50%;
+    left: 60%;
+    height: 15rem;
+}
+@media screen and (min-width: 768px) {
+    #veiculosimg {
+        height: 22rem;; /* Define a largura da imagem como 80% da largura da tela */
+    }
+}
+
+/* Consulta de mídia para ajustar o tamanho da imagem em telas pequenas */
+@media screen and (max-width: 767px) {
+    #veiculosimg {
+        left: 70%;
+        height: 15rem; /* Define a largura da imagem como 50% da largura da tela */
+    }
+}
+#divbutton{
+    display: flex; 
+    flex-wrap: nowrap;
+}
