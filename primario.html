@@ -24,7 +24,7 @@
 			<img id = "veiculosimg" src="veiculos/1.png">
 			<div id="divcompra">
 				<p>Encontre uma nova experiência.</p>
-				<button>ver mais</button><br>
+				<button id="querover">ver mais</button><br>
 			</div>
 		</div>
 		<div id = "comentario" class="container-fluid">
@@ -135,6 +135,11 @@ btnComprar.addEventListener('click', () => {
 btnProximo.addEventListener('click', () => {
     veiculoAtual = veiculoAtual < 8 ? veiculoAtual + 1 : 1;
     atualizarVeiculo();
+});
+document.getElementById('querover').addEventListener('click', function() {
+    document.getElementById('veiculos_compra').scrollIntoView({
+        behavior: 'smooth' 
+    });
 });
 atualizarVeiculo();
 </script>
